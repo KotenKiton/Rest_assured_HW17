@@ -1,6 +1,8 @@
 package tests;
 
 
+import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +13,11 @@ import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class ReqresinHwTests {
+public class ReqresinHwTests  {
+    @BeforeAll
+    static void setUp() {
+        RestAssured.baseURI = "https://reqres.in/";
+    }
 
     @Test
     @DisplayName("404test")
