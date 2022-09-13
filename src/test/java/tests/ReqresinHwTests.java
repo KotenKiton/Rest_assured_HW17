@@ -20,8 +20,8 @@ public class ReqresinHwTests  {
     }
 
     @Test
-    @DisplayName("404test")
-    void getStatusCode404() {
+    @DisplayName("getStatusCode404")
+    void getUserNotFound() {
 
         get("https://reqres.in/api/users/23")
                 .then()
@@ -30,7 +30,7 @@ public class ReqresinHwTests  {
 
     @Test
     @DisplayName("200test")
-    void postStatusCode200() {
+    void postRegisterUserSuccess() {
         String body = "{\"email\": \"eve.holt@reqres.in\", \"password\": \"pistol\" }";
 
         given()
@@ -42,12 +42,12 @@ public class ReqresinHwTests  {
                 .log().all()
                 .statusCode(200)
                 .body("id", is(4))
-                .body("token", is("QpwL5tke4Pnpja7X4"));
+                .body("token", is(notNullValue()));
     }
 
     @Test
     @DisplayName("201test")
-    void postStatusCode201() {
+    void postNameAndJobValues() {
         String body = "{ \"name\": \"morpheus\", \"job\": \"leader\" }";
 
         given()
@@ -65,7 +65,7 @@ public class ReqresinHwTests  {
 
     @Test
     @DisplayName("NullValue200")
-    void putNullValue200() {
+    void putUpdatedAtNotNull() {
         String body = "{ \"name\": \"morpheus\", \"job\": \"zion resident\" }";
 
         given()
