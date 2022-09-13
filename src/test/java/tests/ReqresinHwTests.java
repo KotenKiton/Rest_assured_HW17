@@ -89,6 +89,7 @@ public class ReqresinHwTests  {
                 .body(body)
                 .contentType(JSON)
                 .when()
+                .log().all()
                 .post("https://reqres.in/api/register")
                 .then()
                 .log().all()
