@@ -76,7 +76,7 @@ public class ReqresinHwTests  {
                 .log().all() // Раскроет всё тело запроса
                 .put("https://reqres.in/api/users/2")
                 .then()
-                .log().all()
+                .log().all() // Раскроет всё тело ответа
                 .statusCode(200)
                 .body("updatedAt", notNullValue());
     }
