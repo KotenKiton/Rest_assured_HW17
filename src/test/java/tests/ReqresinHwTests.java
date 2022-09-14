@@ -37,6 +37,7 @@ public class ReqresinHwTests  {
                 .body(body)
                 .contentType(JSON)
                 .when()
+                .log().all() // Раскроет всё тело запроса
                 .post("https://reqres.in/api/register")
                 .then()
                 .log().all()
@@ -54,7 +55,7 @@ public class ReqresinHwTests  {
                 .body(body)
                 .contentType(JSON)
                 .when()
-                .log().all()
+                .log().all() // Раскроет всё тело запроса
                 .post("https://reqres.in/api/users")
                 .then()
                 .log().all()
@@ -72,7 +73,7 @@ public class ReqresinHwTests  {
                 .body(body)
                 .contentType(JSON)
                 .when()
-                .log().all()
+                .log().all() // Раскроет всё тело запроса
                 .put("https://reqres.in/api/users/2")
                 .then()
                 .log().all()
@@ -89,10 +90,10 @@ public class ReqresinHwTests  {
                 .body(body)
                 .contentType(JSON)
                 .when()
-                .log().all()
+                .log().all() // Раскроет всё тело запроса
                 .post("https://reqres.in/api/register")
                 .then()
-                .log().all()
+                .log().all() // Раскроет всё тело ответа
                 .statusCode(400)
                 .body("error", is("Missing password"));
     }
